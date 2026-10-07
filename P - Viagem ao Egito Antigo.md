@@ -2,7 +2,7 @@
 type: project
 status: active
 created: 2026-10-06
-updated: 2026-10-06
+updated: 2026-10-07
 source_agent: codex
 agent_context: github-pages-school-project
 confidence: high
@@ -46,5 +46,5 @@ Criar e publicar um site educativo em português para acompanhar uma mostra cult
 
 ## Links
 
-- [Repositório](https://github.com/laura-baleeiro/amostra-cultural-7b)
-- [Site no GitHub Pages](https://laura-baleeiro.github.io/amostra-cultural-7b/)
+- [Repositório](https://github.com/amostra-cultural-7b/amostra-cultural-7b.github.io)
+- [Site no GitHub Pages](https://amostra-cultural-7b.github.io/index.html)
