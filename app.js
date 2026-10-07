@@ -99,3 +99,31 @@ document.querySelector('#make-name')?.addEventListener('click', () => {
   const name = document.querySelector('#visitor-name').value.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z]/g, '');
   document.querySelector('#glyph-output').textContent = name ? [...name].map(letter => glyphs[letter.charCodeAt(0) - 97]).join(' ') : 'Digite seu nome para começar';
 });
+
+const menuToggle = document.querySelector('.menu-toggle');
+const siteNav = document.querySelector('.navlinks');
+if (menuToggle && siteNav) {
+  document.body.classList.add('nav-ready');
+  const setMenuOpen = open => {
+    menuToggle.setAttribute('aria-expanded', String(open));
+    siteNav.classList.toggle('is-open', open);
+  };
+  menuToggle.addEventListener('click', () => {
+    setMenuOpen(menuToggle.getAttribute('aria-expanded') !== 'true');
+  });
+  siteNav.addEventListener('click', event => {
+    if (event.target.closest('a')) setMenuOpen(false);
+  });
+  document.addEventListener('click', event => {
+    if (!event.target.closest('.nav')) setMenuOpen(false);
+  });
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && menuToggle.getAttribute('aria-expanded') === 'true') {
+      setMenuOpen(false);
+      menuToggle.focus();
+    }
+  });
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 860) setMenuOpen(false);
+  });
+}
