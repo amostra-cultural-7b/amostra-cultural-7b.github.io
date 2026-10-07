@@ -10,7 +10,7 @@ if (qrGrid) {
   ];
   qrGrid.innerHTML = qrEntries.map(([title, route, description, imageName]) => {
     const destination = new URL(route, location.href).href;
-    return `<a class="qr" href="${destination}"><img width="88" height="88" alt="QR Code para ${title}" src="assets/qr-${imageName}.png"><span><strong>${title}</strong><small>${description} ↗</small><small class="qr-url">${destination}</small></span></a>`;
+    return `<a class="qr" href="${destination}"><img width="88" height="88" alt="QR Code para ${title}" src="assets/qr-${imageName}.svg"><span><strong>${title}</strong><small>${description} ↗</small><small class="qr-url">${destination}</small></span></a>`;
   }).join('');
 }
 

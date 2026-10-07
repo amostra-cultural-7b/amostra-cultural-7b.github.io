@@ -6,8 +6,8 @@ A homepage abre com a atividade de transformar o nome em uma sequência lúdica 
 
 ## Publicação
 
-- Repositório: [laura-baleeiro/viagem-egito-antigo](https://github.com/laura-baleeiro/viagem-egito-antigo)
-- Site: [https://laura-baleeiro.github.io/viagem-egito-antigo/](https://laura-baleeiro.github.io/viagem-egito-antigo/)
+- Repositório: [laura-baleeiro/amostra-cultural-7b](https://github.com/laura-baleeiro/amostra-cultural-7b)
+- Site: [https://laura-baleeiro.github.io/amostra-cultural-7b/](https://laura-baleeiro.github.io/amostra-cultural-7b/)
 - GitHub Pages serve a branch `main`, pasta `/ (root)`.
 
 Os QR Codes da página inicial levam a páginas ou seções específicas. As imagens PNG já estão no repositório, então a página e a impressão não dependem de um serviço externo para renderizá-las.
@@ -24,7 +24,7 @@ O QR de tour leva ao modelo 3D da Pirâmide de Quéops no [Giza Project da Unive
 - `egito-hoje.html` — Egito moderno e contemporâneo.
 - `styles.css`, `app.js` — estilos e interações compartilhados.
 - `assets/` — ilustrações originais do Egito antigo e do Cairo contemporâneo, além de fotografias de objetos do The Met.
-- `assets/qr-*.png` — QR Codes prontos para impressão, codificados com a URL pública do GitHub Pages.
+- `assets/qr-*.svg` — QR Codes prontos para impressão, codificados com a URL pública do GitHub Pages.
 - `P - Viagem ao Egito Antigo.md` — registro do projeto no vault.
 
 ## Fontes históricas e créditos de imagem
