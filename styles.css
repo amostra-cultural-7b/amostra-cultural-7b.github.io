@@ -906,3 +906,76 @@ body.home .home-hero {
   :root[data-theme="dark"] body:not(.nav-ready) .navlinks { background: transparent; }
 }
 @media print { :root[data-theme="dark"] { color-scheme: light; } }
+
+/* Restore the panoramic cover image on the homepage. */
+body.home .home-hero,
+:root[data-theme="dark"] body.home .home-hero {
+  display: flex;
+  min-height: min(740px, calc(100svh - 74px));
+  align-items: center;
+  overflow: hidden;
+  isolation: isolate;
+  background: #172327 url('assets/egypt-hero.jpg') center 52% / cover no-repeat;
+  color: #fffefa;
+}
+.home-hero:before {
+  display: block;
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background: linear-gradient(90deg, rgb(15 29 34 / 94%) 0%, rgb(15 29 34 / 77%) 48%, rgb(15 29 34 / 20%) 100%), linear-gradient(0deg, rgb(15 29 34 / 58%), transparent 44%);
+}
+.home-hero-grid {
+  position: relative;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 18px;
+  padding-block: 74px 25px;
+}
+.home-hero .hero-copy { max-width: 620px; }
+.home-hero .eyebrow { color: #edc989; }
+.home-hero h1, .home-hero h1 em { color: #fff9eb; }
+.home-hero h1 em { color: #e5c18b; }
+.home-hero p { color: #f1eee6; }
+.home-hero-art {
+  position: absolute;
+  right: 0;
+  bottom: 91px;
+  width: auto;
+  aspect-ratio: auto;
+  overflow: visible;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+}
+.home-hero-art img { display: none; }
+.home-hero-art figcaption {
+  position: static;
+  min-width: 220px;
+  padding: 11px 14px;
+  background: rgb(18 32 37 / 76%);
+}
+.home-hero-meta {
+  align-self: end;
+  margin-top: 75px;
+  border-color: rgb(255 255 255 / 28%);
+  color: #e0e2dc;
+}
+.home-hero-meta a { color: #f0d29e; }
+:root[data-theme="dark"] body.home .home-hero { background-image: url('assets/egypt-hero.jpg'); }
+@media (max-width: 860px) {
+  body.home .home-hero, :root[data-theme="dark"] body.home .home-hero { min-height: 0; }
+  .home-hero-grid { grid-template-columns: minmax(0, 1fr); gap: 18px; padding-block: 55px 22px; }
+  .home-hero-art { right: 24px; bottom: 90px; }
+  .home-hero-meta { margin-top: 86px; }
+}
+@media (max-width: 600px) {
+  body.home .home-hero, :root[data-theme="dark"] body.home .home-hero { align-items: flex-start; }
+  .home-hero-grid { gap: 16px; padding-block: 35px 20px; }
+  .home-hero .hero-copy { max-width: 100%; }
+  .home-hero h1 { max-width: 12ch; margin: 14px 0 13px; font-size: clamp(2.45rem, 10vw, 3.2rem); }
+  .home-hero-art { position: static; width: fit-content; margin: 0 0 0 auto; }
+  .home-hero-art figcaption { min-width: 0; padding: 9px 11px; }
+  .home-hero-art figcaption strong { font-size: .92rem; }
+  .home-hero-meta { margin-top: 0; }
+}
