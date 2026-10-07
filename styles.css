@@ -800,7 +800,8 @@ body.home .home-hero {
 }
 .home-hero h1 em { color: var(--lapis); }
 .home-hero p { max-width: 47ch; color: var(--ink-soft); }
-.home-hero .cta { margin-top: 27px; box-shadow: 0 5px 14px rgb(96 69 34 / 12%); }
+.home-hero .cta { max-width: 100%; margin-top: 27px; box-shadow: 0 5px 14px rgb(96 69 34 / 12%); }
+.home-hero .cta span { flex: none; }
 .home-hero-art {
   min-width: 0;
   position: relative;
@@ -854,7 +855,7 @@ body.home .home-hero {
   .home-hero-grid { gap: 22px; padding-block: 28px 17px; }
   .home-hero h1 { margin: 14px 0 13px; font-size: clamp(2.45rem, 10vw, 3.2rem); }
   .home-hero p { font-size: .94rem; line-height: 1.7; }
-  .home-hero .cta { margin-top: 19px; }
+  .home-hero .cta { gap: 8px; margin-top: 19px; }
   .home-hero-art { aspect-ratio: 1.35 / 1; border-radius: 15px; }
   .home-hero-art figcaption { right: 9px; bottom: 9px; left: 9px; padding: 10px 12px; }
   .home-hero-art figcaption strong { font-size: 1rem; }
