@@ -13,7 +13,7 @@ review: true
 
 ## Objetivo
 
-Criar e publicar um site educativo em português para acompanhar uma mostra cultural escolar sobre o Egito, funcionando como museu interativo e destino dos QR Codes do estande.
+Criar e publicar um site educativo em português para acompanhar uma amostra cultural escolar sobre o Egito, funcionando como museu interativo e destino dos QR Codes do estande.
 
 ## Entregável
 
