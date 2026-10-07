@@ -2,6 +2,8 @@
 
 Site estático em português para a mostra cultural. Tem cinco páginas temáticas, imagens originais e fotografias de acervo CC0, linha do tempo filtrável, QR Codes, quiz e atividade visual.
 
+A homepage apresenta o percurso em seis etapas — estações, cronologia, objetos, QR Codes, quiz e atividade. As páginas temáticas organizam o conteúdo em seções nomeadas e terminam com navegação para a estação seguinte.
+
 ## Publicação
 
 - Repositório: [kaio-baleeiro/viagem-egito-antigo](https://github.com/kaio-baleeiro/viagem-egito-antigo)
