@@ -32,7 +32,7 @@ Criar e publicar um site educativo em português para acompanhar uma mostra cult
 - A foto do barco do Nilo é identificada corretamente como fotografia de 1851 (não como modelo funerário); IDs das fichas do Met são distinguidos dos números de inventário.
 - A rota de tour virtual leva ao modelo 3D de Quéops do Giza Project/Harvard, e o filtro cronológico publica seu estado com `aria-pressed`.
 - O conversor deixa claro que substitui letras por símbolos como brincadeira visual, não como tradução ou escrita egípcia.
-- A homepage conduz visitantes por seis etapas; páginas temáticas usam seções HTML nomeadas e navegação consistente para a próxima estação.
+- A homepage abre com a atividade lúdica de transformar o nome em sinais; depois conduz visitantes pelas estações, cronologia, objetos, QR Codes e quiz. Páginas temáticas usam seções HTML nomeadas e navegação consistente para a próxima estação.
 - CSS compartilhado reforça hierarquia visual, espaçamento responsivo, estados de foco e movimento reduzido sem alterar a folha de impressão dos QR Codes.
 
 ## Fontes
