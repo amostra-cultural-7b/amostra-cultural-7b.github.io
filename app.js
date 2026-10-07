@@ -45,6 +45,66 @@ timelineFilters.forEach(button => {
   });
 });
 
+const deityCards = [...document.querySelectorAll('.deity-card')];
+const deityDialog = document.querySelector('#deity-dialog');
+if (deityCards.length && deityDialog) {
+  const deities = [
+    {name:'Rá', role:'Sol e renovação', image:'https://collectionapi.metmuseum.org/api/collection/v1/iiif/553249/1653054/main-image', imageAlt:'Estela votiva com uma cena de oferenda a Re-Harakhty, forma associada a Rá', source:'https://www.metmuseum.org/art/collection/search/553249', description:'O sol estava ligado à criação e ao renascimento a cada manhã. Em algumas narrativas, Rá cruzava o céu em sua barca e atravessava o mundo noturno antes de voltar a nascer.', highlight:'A barca solar representa movimento e renovação; esta estela mostra Re-Harakhty, uma forma que combina Rá e Hórus.'},
+    {name:'Amon (Amun)', role:'Proteção e poder', image:'https://collectionapi.metmuseum.org/api/collection/v1/iiif/570680/1216580/main-image', imageAlt:'Estatueta de bronze da divindade Amon', source:'https://www.metmuseum.org/art/collection/search/570680', description:'Divindade associada a Tebas, Amon ganhou destaque no Novo Império. A união com Rá formou Amon-Rá, uma expressão de poder divino importante em templos e inscrições.', highlight:'Amon também podia ser chamado de “o oculto”. Sua iconografia inclui a coroa com plumas altas.'},
+    {name:'Ísis', role:'Magia e proteção', image:'https://collectionapi.metmuseum.org/api/collection/v1/iiif/552064/1212451/main-image', imageAlt:'Estatueta de Ísis amamentando o filho Hórus', source:'https://www.metmuseum.org/art/collection/search/552064', description:'Ísis era conhecida por sua magia e por proteger crianças e famílias. Nos mitos de Osíris, ela o procura e ajuda a proteger o filho Hórus.', highlight:'Esta estatueta mostra Ísis com Hórus criança; o sinal de trono também aparece em muitas representações da deusa.'},
+    {name:'Osíris', role:'Renovação e além', image:'https://collectionapi.metmuseum.org/api/collection/v1/iiif/570657/1226764/main-image', imageAlt:'Estatueta de Osíris, divindade mumificada que segura símbolos de poder', source:'https://www.metmuseum.org/art/collection/search/570657', description:'Ligado à realeza, à regeneração e à vida após a morte, Osíris aparece como governante do mundo dos mortos e juiz em cenas funerárias.', highlight:'A figura mumificada e a coroa Atef são marcas frequentes nas representações de Osíris.'},
+    {name:'Hórus', role:'Céu e realeza', image:'https://collectionapi.metmuseum.org/api/collection/v1/iiif/553060/1221220/main-image', imageAlt:'Estatueta de bronze de Hórus, senhor de Sekhem', source:'https://www.metmuseum.org/art/collection/search/553060', description:'Hórus era associado ao céu e representado de muitas formas, inclusive como falcão. A realeza egípcia relacionava o faraó vivo a Hórus.', highlight:'Observe o falcão em estátuas e relevos: ele pode proteger ou acompanhar a figura do rei.'},
+    {name:'Anúbis', role:'Ritos funerários', image:'https://collectionapi.metmuseum.org/api/collection/v1/iiif/570223/1942572/main-image', imageAlt:'Estatueta de bronze de Anúbis, com cabeça de canídeo', source:'https://www.metmuseum.org/art/collection/search/570223', description:'Anúbis estava ligado ao embalsamamento e à proteção dos mortos. Em cenas do julgamento, ele acompanha a pesagem do coração diante da pena de Maat.', highlight:'Sua forma mais conhecida combina corpo humano e cabeça de canídeo, animal associado às necrópoles.'},
+    {name:'Tot (Thoth)', role:'Escrita e saber', image:'https://collectionapi.metmuseum.org/api/collection/v1/iiif/570260/1999162/main-image', imageAlt:'Estatueta de divindade com cabeça de íbis, identificada como Tot', source:'https://www.metmuseum.org/art/collection/search/570260', description:'Tot era relacionado à escrita, ao conhecimento e ao cálculo. Em imagens funerárias, aparece registrando o resultado da pesagem do coração.', highlight:'As representações mais conhecidas mostram Tot como íbis ou babuíno; ambas são formas simbólicas.'},
+    {name:'Hathor', role:'Música e alegria', image:'https://collectionapi.metmuseum.org/api/collection/v1/iiif/554615/1210688/main-image', imageAlt:'Cabeça da deusa Hathor esculpida no cabo de um sistro', source:'https://www.metmuseum.org/art/collection/search/554615', description:'Hathor estava ligada à música, à celebração, ao cuidado e à maternidade. Seus cultos atravessaram muitos períodos e lugares do Egito.', highlight:'Seus chifres envolvendo o disco solar ajudam a reconhecer uma de suas formas mais comuns.'},
+    {name:'Bastet', role:'Proteção e cuidado', image:'https://collectionapi.metmuseum.org/api/collection/v1/iiif/552468/1214431/main-image', imageAlt:'Estatueta de Bastet, deusa representada em forma felina', source:'https://www.metmuseum.org/art/collection/search/552468', description:'Bastet era uma divindade protetora associada a gatos, festividades e ao cuidado da casa. Sua representação e seus atributos variaram ao longo do tempo.', highlight:'Ela aparece como gata ou como figura humana com cabeça de gato; Bubástis foi um importante centro de culto.'},
+    {name:'Seth', role:'Deserto e tempestades', image:'https://collectionapi.metmuseum.org/api/collection/v1/iiif/557847/1749447/main-image', imageAlt:'Fac-símile de cena mural em que Seth combate uma serpente', source:'https://www.metmuseum.org/art/collection/search/557847', description:'Seth era associado ao deserto, às tempestades e a forças difíceis de controlar. Em outras narrativas, também defendia a barca solar contra ameaças.', highlight:'A imagem é um fac-símile de uma cena de templo. O “animal de Seth” não corresponde com certeza a uma espécie conhecida.'}
+  ];
+  const dialogTitle = deityDialog.querySelector('#deity-dialog-title');
+  const dialogRole = deityDialog.querySelector('.deity-dialog-role');
+  const dialogDescription = deityDialog.querySelector('#deity-dialog-description');
+  const dialogHighlight = deityDialog.querySelector('.deity-dialog-highlight');
+  const dialogImage = deityDialog.querySelector('.deity-dialog-image');
+  const dialogSource = deityDialog.querySelector('.deity-dialog-source');
+  const dialogIndex = deityDialog.querySelector('.deity-dialog-index');
+  const navCount = deityDialog.querySelector('.deity-dialog-nav-count');
+  const closeButton = deityDialog.querySelector('.deity-dialog-close');
+  let deityIndex = 0;
+  let returnFocusTo = null;
+  const formatDeityIndex = index => `${String(index + 1).padStart(2, '0')} / ${String(deities.length).padStart(2, '0')}`;
+  const renderDeity = index => {
+    deityIndex = (index + deities.length) % deities.length;
+    const deity = deities[deityIndex];
+    const currentPosition = formatDeityIndex(deityIndex);
+    dialogTitle.textContent = deity.name;
+    dialogRole.textContent = deity.role;
+    dialogDescription.textContent = deity.description;
+    dialogHighlight.textContent = deity.highlight;
+    dialogImage.src = deity.image;
+    dialogImage.alt = deity.imageAlt;
+    dialogSource.href = deity.source;
+    dialogIndex.textContent = `${currentPosition} · DIVINDADE EGÍPCIA`;
+    navCount.textContent = currentPosition;
+    closeButton.setAttribute('aria-label', `Fechar detalhes de ${deity.name}`);
+  };
+  const openDeity = (index, trigger) => {
+    returnFocusTo = trigger;
+    renderDeity(index);
+    deityDialog.showModal();
+    closeButton.focus();
+  };
+  deityCards.forEach(card => card.addEventListener('click', () => openDeity(Number(card.dataset.deity), card)));
+  closeButton.addEventListener('click', () => deityDialog.close());
+  deityDialog.querySelector('.deity-dialog-prev').addEventListener('click', () => renderDeity(deityIndex - 1));
+  deityDialog.querySelector('.deity-dialog-next').addEventListener('click', () => renderDeity(deityIndex + 1));
+  deityDialog.addEventListener('click', event => {
+    if (event.target === deityDialog) deityDialog.close();
+  });
+  deityDialog.addEventListener('close', () => {
+    if (returnFocusTo?.isConnected) returnFocusTo.focus();
+  });
+}
+
 const questions = [
   {q:'Qual rio foi essencial para a vida no Egito Antigo?',a:['Rio Nilo','Rio Eufrates','Rio Jordão'],ok:0,why:'O Nilo fornecia água, transporte e terras férteis.'},
   {q:'Em qual período foram construídas as pirâmides de Gizé?',a:['Império Antigo','Novo Império','Período Ptolemaico'],ok:0,why:'As pirâmides de Gizé foram erguidas durante o Império Antigo.'},

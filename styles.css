@@ -556,43 +556,147 @@ header {
   .card:hover, .object-card:hover, .qr:hover { transform: none; }
 }
 
-/* Short, expandable reference cards for the beliefs page. */
+/* Character roster and detail modal for the Egyptian deities. */
 .page-writing .subsection-title { margin: 30px 0 5px; }
 .page-writing .deity-hint { margin: 0 0 14px; font-size: .88rem; }
-.deity-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin-top: 17px; }
-.deity {
-  min-width: 0;
+.deity-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 13px; margin-top: 18px; }
+.deity-card {
+  --deity-tone: #e9d7b6;
   position: relative;
-  border: 1px solid #ded8cc;
-  border-radius: 11px;
-  background: var(--white);
-  transition: border-color .18s, background .18s;
-}
-.deity:hover, .deity[open] { border-color: #cbb88e; background: #fffefa; }
-.deity summary {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  min-height: 58px;
-  padding: 10px 40px 10px 15px;
+  min-width: 0;
+  flex-direction: column;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid #ddd4c2;
+  border-radius: 13px;
   color: var(--ink);
+  background: #fffefa;
+  text-align: left;
   cursor: pointer;
-  list-style: none;
+  box-shadow: 0 2px 6px rgb(37 34 27 / 5%);
+  transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
 }
-.deity summary::-webkit-details-marker { display: none; }
-.deity summary:after {
-  content: "+";
+.deity-card:nth-child(4n + 2) { --deity-tone: #d6e0da; }
+.deity-card:nth-child(4n + 3) { --deity-tone: #e2d8e3; }
+.deity-card:nth-child(4n) { --deity-tone: #d8e1e5; }
+.deity-card:hover { transform: translateY(-4px); border-color: #c3a66f; box-shadow: 0 12px 24px rgb(38 35 28 / 13%); }
+.deity-card:focus-visible, .deity-dialog button:focus-visible { outline: 3px solid var(--lapis); outline-offset: 3px; }
+.deity-art {
+  position: relative;
+  display: block;
+  min-height: 158px;
+  overflow: hidden;
+  color: #ead6a9;
+  background: radial-gradient(circle at 50% 42%, #3e625e 0, #18343a 64%, #13282e 100%);
+}
+.deity-art::before, .deity-dialog-art::before {
   position: absolute;
-  top: 17px;
-  right: 15px;
-  color: var(--lapis);
-  font: 500 1.1rem/1 var(--ui-font);
+  inset: 12px;
+  border: 1px solid rgb(226 198 142 / 35%);
+  border-radius: 8px;
+  content: "";
+  pointer-events: none;
 }
-.deity[open] summary:after { content: "−"; }
-.deity summary span { font: 600 .95rem var(--ui-font); }
-.deity summary small { color: var(--muted); font: 500 .72rem/1.35 var(--ui-font); text-align: right; }
-.deity p { margin: 0; padding: 0 15px 15px; color: var(--ink-soft); font-size: .84rem; line-height: 1.6; }
+.deity-art::after {
+  position: absolute;
+  right: -25px;
+  bottom: -48px;
+  width: 120px;
+  height: 120px;
+  border: 1px solid rgb(226 198 142 / 25%);
+  border-radius: 50%;
+  box-shadow: 0 0 0 13px rgb(226 198 142 / 7%), 0 0 0 28px rgb(226 198 142 / 6%);
+  content: "";
+}
+.deity-card:nth-child(3n + 2) .deity-art { background: radial-gradient(circle at 50% 42%, #6c5740 0, #40362f 62%, #252c2d 100%); }
+.deity-card:nth-child(3n) .deity-art { background: radial-gradient(circle at 50% 42%, #596f73 0, #293e47 62%, #192d35 100%); }
+.deity-art-image { position: absolute; inset: 0; width: 100%; height: 100%; padding: 12px 15px 17px; object-fit: contain; }
+.deity-art-mark {
+  position: absolute;
+  z-index: 1;
+  right: 10px;
+  bottom: 9px;
+  display: grid;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  border: 1px solid rgb(226 198 142 / 58%);
+  border-radius: 50%;
+  color: #f0d89e;
+  background: rgb(19 40 46 / 78%);
+  font: 400 1.35rem/1 "Noto Sans Egyptian Hieroglyphs", "Segoe UI Historic", serif;
+  text-shadow: 0 2px 20px rgb(231 197 129 / 37%);
+  transition: transform .25s ease;
+}
+.deity-card:hover .deity-art-mark { transform: scale(1.08); }
+.deity-card-copy { display: flex; flex-direction: column; gap: 3px; padding: 11px 12px 13px; }
+.deity-card-copy strong { font: 600 .98rem/1.2 var(--ui-font); }
+.deity-card-copy small { color: var(--muted); font: 500 .7rem/1.35 var(--ui-font); }
+.deity-card-arrow { position: absolute; right: 10px; bottom: 11px; color: #8a6840; font-size: .85rem; opacity: 0; transform: translate(-3px, 3px); transition: opacity .2s ease, transform .2s ease; }
+.deity-card:hover .deity-card-arrow, .deity-card:focus-visible .deity-card-arrow { opacity: 1; transform: none; }
+.deity-dialog {
+  position: fixed;
+  width: min(820px, calc(100vw - 32px));
+  max-width: none;
+  max-height: min(690px, calc(100dvh - 32px));
+  padding: 0;
+  overflow: auto;
+  border: 1px solid rgb(218 204 175 / 75%);
+  border-radius: 19px;
+  color: var(--ink);
+  background: #f7f3e9;
+  box-shadow: 0 30px 110px rgb(0 0 0 / 39%);
+}
+.deity-dialog::backdrop { background: rgb(12 24 27 / 74%); backdrop-filter: blur(5px); }
+.deity-dialog-shell { position: relative; display: grid; grid-template-columns: minmax(225px, .78fr) minmax(0, 1.22fr); min-height: 424px; }
+.deity-dialog-close {
+  position: absolute;
+  z-index: 2;
+  top: 13px;
+  right: 13px;
+  display: grid;
+  width: 40px;
+  height: 40px;
+  place-items: center;
+  border: 1px solid #cfc5b3;
+  border-radius: 50%;
+  color: var(--ink);
+  background: rgb(247 243 233 / 93%);
+  font: 300 1.65rem/1 var(--ui-font);
+  cursor: pointer;
+}
+.deity-dialog-art {
+  position: relative;
+  display: flex;
+  margin: 0;
+  min-height: 360px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  color: #f1d9a1;
+  background: radial-gradient(circle at 52% 42%, #496863 0, #1d383d 60%, #13292f 100%);
+}
+.deity-dialog-art::before { inset: 18px; }
+.deity-dialog-image { width: 100%; height: 100%; min-height: 360px; padding: 42px 27px 74px; object-fit: contain; }
+.deity-dialog-art-caption { position: absolute; z-index: 1; right: 24px; bottom: 23px; left: 24px; display: flex; align-items: center; justify-content: space-between; gap: 10px; color: rgb(249 233 198 / 75%); font: 700 .55rem var(--ui-font); letter-spacing: .13em; }
+.deity-dialog-source { color: #f2dda9; font: 600 .63rem var(--ui-font); letter-spacing: .01em; text-decoration: underline; text-decoration-color: rgb(242 221 169 / 55%); text-underline-offset: 3px; }
+.deity-dialog-content { align-self: center; padding: 62px 38px 34px; }
+.deity-dialog-index { margin: 0 0 17px; color: #8a6840; font: 700 .62rem var(--ui-font); letter-spacing: .14em; }
+.deity-dialog-content h3 { margin: 0; color: var(--ink); font: 500 clamp(2.2rem, 5vw, 3.55rem)/1.04 var(--serif); }
+.deity-dialog-role { margin: 9px 0 19px; color: #6c817c; font: 600 .85rem var(--ui-font); letter-spacing: .03em; }
+.deity-dialog-description { margin: 0; color: var(--ink-soft); font-size: .94rem; line-height: 1.75; }
+.deity-dialog-note { margin-top: 24px; padding: 15px 16px; border-left: 2px solid #c49d5b; background: #eee7d9; }
+.deity-dialog-note span { color: #8a6840; font: 700 .59rem var(--ui-font); letter-spacing: .13em; }
+.deity-dialog-note p { margin: 7px 0 0; color: var(--ink-soft); font-size: .81rem; line-height: 1.55; }
+.deity-dialog-nav { position: sticky; z-index: 2; bottom: 0; grid-column: 1 / -1; display: flex; align-items: center; justify-content: space-between; min-height: 62px; padding: 8px 20px; border-top: 1px solid #ded6c8; background: #f7f3e9; }
+.deity-dialog-nav button { display: inline-flex; align-items: center; gap: 9px; padding: 9px 11px; border: 0; border-radius: 8px; color: var(--ink); background: transparent; font: 600 .78rem var(--ui-font); cursor: pointer; }
+.deity-dialog-nav button:hover { background: #eee7d9; }
+.deity-dialog-nav button span:first-child[aria-hidden="true"], .deity-dialog-nav button span:last-child[aria-hidden="true"] { color: #9c7743; font-size: 1.05rem; }
+.deity-dialog-nav-count { color: var(--muted); font: 700 .62rem var(--ui-font); letter-spacing: .12em; }
+.deity-dialog[open] { animation: deity-dialog-enter .22s ease-out; }
+@keyframes deity-dialog-enter { from { opacity: 0; transform: translateY(8px) scale(.985); } to { opacity: 1; transform: none; } }
 .afterlife-title { margin-top: 40px !important; }
 .afterlife-steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-top: 17px; }
 .afterlife-steps article { min-width: 0; padding: 19px 18px 20px; border: 1px solid #ded8cc; border-radius: 11px; background: #fffefa; }
@@ -601,12 +705,34 @@ header {
 .afterlife-steps p { margin: 0; color: var(--ink-soft); font-size: .81rem; line-height: 1.6; }
 .deity-feature { margin-top: 32px; }
 @media (max-width: 600px) {
-  .deity-grid, .afterlife-steps { grid-template-columns: minmax(0, 1fr); }
-  .deity summary { min-height: 56px; }
-  .afterlife-steps { gap: 9px; }
+  .deity-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  .deity-art { min-height: 130px; }
+  .deity-art-image { padding: 9px 11px 14px; }
+  .deity-card-copy { padding: 10px 10px 12px; }
+  .deity-card-arrow { opacity: 1; transform: none; }
+  .afterlife-steps { grid-template-columns: minmax(0, 1fr); gap: 9px; }
   .afterlife-steps article { padding: 16px; }
   .deity-feature { margin-top: 25px; }
+  .deity-dialog { width: calc(100vw - 20px); max-height: calc(100dvh - 20px); border-radius: 15px; }
+  .deity-dialog-shell { grid-template-columns: 1fr; }
+  .deity-dialog-art { height: 200px; min-height: 200px; }
+  .deity-dialog-art::before { inset: 10px; }
+  .deity-dialog-image { height: 200px; min-height: 200px; padding: 23px 20px 49px; }
+  .deity-dialog-art-caption { right: 17px; bottom: 14px; left: 17px; font-size: .48rem; }
+  .deity-dialog-source { font-size: .57rem; }
+  .deity-dialog-close { top: 10px; right: 10px; width: 36px; height: 36px; }
+  .deity-dialog-content { padding: 23px 22px 23px; }
+  .deity-dialog-index { margin-bottom: 9px; font-size: .56rem; }
+  .deity-dialog-content h3 { font-size: 2.3rem; }
+  .deity-dialog-role { margin: 6px 0 13px; }
+  .deity-dialog-description { font-size: .87rem; line-height: 1.6; }
+  .deity-dialog-note { margin-top: 16px; padding: 12px 13px; }
+  .deity-dialog-nav { min-height: 57px; padding: 6px 12px; }
+  .deity-dialog-nav button { gap: 6px; padding: 8px 5px; font-size: .72rem; }
 }
+@media (min-width: 601px) and (max-width: 900px) { .deity-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 370px) { .deity-art { min-height: 112px; } .deity-card-copy strong { font-size: .9rem; } .deity-dialog-content { padding-inline: 17px; } }
+@media (prefers-reduced-motion: reduce) { .deity-card, .deity-art-mark { transition: none; } .deity-dialog[open] { animation: none; } }
 
 /* Homepage cover: editorial split between the invitation and the landscape. */
 body.home .home-hero {
