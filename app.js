@@ -160,6 +160,31 @@ document.querySelector('#make-name')?.addEventListener('click', () => {
   document.querySelector('#glyph-output').textContent = name ? [...name].map(letter => glyphs[letter.charCodeAt(0) - 97]).join(' ') : 'Digite seu nome para começar';
 });
 
+const themeToggle = document.querySelector('.theme-toggle');
+if (themeToggle) {
+  const root = document.documentElement;
+  const themeIcon = themeToggle.querySelector('.theme-toggle-icon');
+  const themeLabel = themeToggle.querySelector('.theme-toggle-label');
+  const applyTheme = theme => {
+    const isDark = theme === 'dark';
+    root.dataset.theme = isDark ? 'dark' : 'light';
+    root.style.colorScheme = isDark ? 'dark' : 'light';
+    const themeColor = document.querySelector('meta[name="theme-color"]');
+    if (themeColor) themeColor.content = isDark ? '#172327' : '#f6f3ec';
+    themeToggle.setAttribute('aria-pressed', String(isDark));
+    themeToggle.setAttribute('aria-label', isDark ? 'Ativar modo claro' : 'Ativar modo escuro');
+    themeToggle.title = isDark ? 'Ativar modo claro' : 'Ativar modo escuro';
+    themeIcon.textContent = isDark ? '☀' : '☾';
+    themeLabel.textContent = isDark ? 'Modo claro' : 'Modo escuro';
+  };
+  applyTheme(root.dataset.theme || 'light');
+  themeToggle.addEventListener('click', () => {
+    const nextTheme = root.dataset.theme === 'dark' ? 'light' : 'dark';
+    applyTheme(nextTheme);
+    try { localStorage.setItem('egypt-theme', nextTheme); } catch (error) { /* preferência só fica nesta visita */ }
+  });
+}
+
 const menuToggle = document.querySelector('.menu-toggle');
 const siteNav = document.querySelector('.navlinks');
 if (menuToggle && siteNav) {
