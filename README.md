@@ -6,8 +6,8 @@ A homepage abre com a atividade de transformar o nome em uma sequência lúdica 
 
 ## Publicação
 
-- Repositório: [kaio-baleeiro/viagem-egito-antigo](https://github.com/kaio-baleeiro/viagem-egito-antigo)
-- Site: [https://kaio-baleeiro.github.io/viagem-egito-antigo/](https://kaio-baleeiro.github.io/viagem-egito-antigo/)
+- Repositório: [laura-baleeiro/viagem-egito-antigo](https://github.com/laura-baleeiro/viagem-egito-antigo)
+- Site: [https://laura-baleeiro.github.io/viagem-egito-antigo/](https://laura-baleeiro.github.io/viagem-egito-antigo/)
 - GitHub Pages serve a branch `main`, pasta `/ (root)`.
 
 Os QR Codes da página inicial levam a páginas ou seções específicas. As imagens PNG já estão no repositório, então a página e a impressão não dependem de um serviço externo para renderizá-las.

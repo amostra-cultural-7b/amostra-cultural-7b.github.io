@@ -46,5 +46,5 @@ Criar e publicar um site educativo em português para acompanhar uma mostra cult
 
 ## Links
 
-- [Repositório](https://github.com/kaio-baleeiro/viagem-egito-antigo)
-- [Site no GitHub Pages](https://kaio-baleeiro.github.io/viagem-egito-antigo/)
+- [Repositório](https://github.com/laura-baleeiro/viagem-egito-antigo)
+- [Site no GitHub Pages](https://laura-baleeiro.github.io/viagem-egito-antigo/)
