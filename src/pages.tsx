@@ -32,7 +32,19 @@ export function HomePage() {
 }
 
 function NileMap() {
-  return <><div className="mapbox" style={{ maxWidth: 430, background: '#182536' }}><svg viewBox="0 0 330 360" role="img" aria-label="Mapa esquemático do Egito com o rio Nilo, Cairo, Luxor, Assuã e o mar Mediterrâneo"><path d="M108 26 239 41 270 107 250 151 271 224 218 302 147 337 113 279 88 224 70 163 49 108 70 56Z" fill="#bb8751" stroke="#f0cc8b" strokeWidth="2" /><path d="M174 316 168 272 171 231 164 191 168 151 164 111" fill="none" stroke="#82c9c2" strokeWidth="7" strokeLinecap="round" /><path d="m164 111-37-24m37 24 2-38m-2 38 43-20" fill="none" stroke="#82c9c2" strokeWidth="5" strokeLinecap="round" /><circle cx="168" cy="220" r="5" fill="#fff0c8" /><text x="180" y="224" fill="#fff0c8" fontSize="12">Luxor</text><circle cx="170" cy="280" r="5" fill="#fff0c8" /><text x="181" y="284" fill="#fff0c8" fontSize="12">Assuã</text><circle cx="165" cy="132" r="5" fill="#fff0c8" /><text x="177" y="136" fill="#fff0c8" fontSize="12">Cairo</text><text x="36" y="30" fill="#c8c0ae" fontSize="10">MAR MEDITERRÂNEO</text></svg></div><p className="map-note">O delta fica ao norte; Assuã fica ao sul. A costa do Mar Vermelho está a leste.</p></>;
+  return <figure className="nile-map-figure">
+    <div className="mapbox nile-map">
+      <img src="/assets/nile-map-illustration.jpg" alt="Ilustração cartográfica do nordeste da África: o delta do Nilo chega ao Mediterrâneo no norte, e o vale verde acompanha o rio até o sul; o Mar Vermelho aparece a leste." loading="lazy" />
+      <span className="map-sea-label map-mediterranean">Mar Mediterrâneo</span>
+      <span className="map-sea-label map-red-sea">Mar Vermelho</span>
+      <span className="map-north" aria-hidden="true">↑ Norte</span>
+      <span className="map-river-key"><i aria-hidden="true" />Nilo · sul → norte</span>
+      <span className="map-place map-place-cairo"><i aria-hidden="true" /><b>Cairo</b></span>
+      <span className="map-place map-place-luxor"><i aria-hidden="true" /><b>Luxor</b></span>
+      <span className="map-place map-place-aswan"><i aria-hidden="true" /><b>Assuã</b></span>
+    </div>
+    <figcaption className="map-note">Assuã fica ao sul; Cairo fica próximo ao delta. Ilustração criada com IA, esquemática e sem escala.</figcaption>
+  </figure>;
 }
 
 export function NilePage() {

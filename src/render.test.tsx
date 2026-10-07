@@ -27,7 +27,15 @@ describe('pré-renderização das rotas públicas', () => {
     for (const id of ['era-faraonica', 'era-ptolomaica', 'era-romana', 'era-medieval', 'era-moderna']) {
       expect(timeline).toContain(`id="${id}"`);
     }
-    expect(renderToStaticMarkup(renderPage('nile', Sources))).toContain('id="mapa"');
+    const nile = renderToStaticMarkup(renderPage('nile', Sources));
+    expect(nile).toContain('id="mapa"');
+    expect(nile).toContain('src="/assets/nile-map-illustration.jpg"');
+    expect(nile).toContain('Mar Mediterrâneo');
+    expect(nile).toContain('Mar Vermelho');
+    expect(nile).toContain('Cairo');
+    expect(nile).toContain('Luxor');
+    expect(nile).toContain('Assuã');
+    expect(nile).toContain('Ilustração criada com IA, esquemática e sem escala.');
     expect(renderToStaticMarkup(renderPage('monuments', Sources))).toContain('id="piramides"');
     expect(renderToStaticMarkup(renderPage('writing', Sources))).toContain('id="rosetta"');
     expect(renderToStaticMarkup(renderPage('home', Sources))).toContain('id="quiz"');
