@@ -20,6 +20,7 @@ Criar e publicar um site educativo em português para acompanhar uma mostra cult
 - `index.html`: página responsiva com estações, linha do tempo filtrável, QR Codes internos, quiz e conversor lúdico de nome em símbolos.
 - `README.md`: instruções de publicação e fontes históricas.
 - Repositório GitHub público e publicação pelo GitHub Pages.
+- O site agora inclui um painel visual ilustrado e mapa esquemático do Nilo.
 
 ## Decisões editoriais
 
@@ -35,5 +36,5 @@ Criar e publicar um site educativo em português para acompanhar uma mostra cult
 
 ## Links
 
-- Repositório: a publicar.
-- Site: a publicar.
+- [Repositório](https://github.com/kaio-baleeiro/viagem-egito-antigo)
+- [Site no GitHub Pages](https://kaio-baleeiro.github.io/viagem-egito-antigo/)

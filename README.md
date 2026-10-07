@@ -4,11 +4,16 @@ Site interativo para a mostra cultural da escola, com estações da exposição,
 
 ## Publicação
 
-O projeto é uma página estática (`index.html`) e pode ser publicado pelo GitHub Pages usando a branch `main`, pasta `/ (root)`. Os QR Codes apontam para as seções internas da página e são gerados com o endereço definitivo após a publicação.
+Repositório: [kaio-baleeiro/viagem-egito-antigo](https://github.com/kaio-baleeiro/viagem-egito-antigo)
+
+Site: [https://kaio-baleeiro.github.io/viagem-egito-antigo/](https://kaio-baleeiro.github.io/viagem-egito-antigo/)
+
+O GitHub Pages serve a branch `main`, pasta `/ (root)`. Os QR Codes apontam para as seções internas da página e são gerados com o endereço definitivo.
 
 ## Conteúdo
 
 - `index.html` — página completa, estilos e interações em um único arquivo.
+- `P - Viagem ao Egito Antigo.md` — registro do projeto no vault.
 
 ## Fontes históricas
 
