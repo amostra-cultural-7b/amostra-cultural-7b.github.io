@@ -1013,7 +1013,7 @@ body.home .home-hero,
 }
 @media (max-width: 600px) {
   body.home .home-hero, :root[data-theme="dark"] body.home .home-hero { align-items: flex-start; }
-  .home-hero-grid { gap: 16px; padding-block: 35px 20px; }
+  .home-hero-grid { gap: 28px; padding-block: 35px 20px; }
   .home-hero .hero-copy { max-width: 100%; }
   .home-hero h1 { max-width: 12ch; margin: 14px 0 13px; font-size: clamp(2.45rem, 10vw, 3.2rem); }
   .home-hero-art { position: static; width: fit-content; margin: 0 0 0 auto; }
