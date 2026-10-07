@@ -124,6 +124,7 @@ section { position: relative; padding: 90px 0; }
 .qr img { flex: none; width: 88px; height: 88px; padding: 4px; background: #fff; }
 .qr strong { display: block; font-size: .88rem; line-height: 1.4; }
 .qr small { display: block; margin-top: 3px; color: #c1cbc7; font-size: .74rem; line-height: 1.45; }
+.qr small.qr-url { display: none; }
 .qr-note { margin-top: 15px; color: var(--ink-soft); font-size: .78rem; }
 .qr-url { display: none; }
 
@@ -220,18 +221,18 @@ section { position: relative; padding: 90px 0; }
   .wrap { width: calc(100% - 36px); }
   section { padding: 65px 0; }
   header { border-bottom-color: #ffffff45; }
-  .nav { min-height: 98px; gap: 1px; padding-block: 10px 8px; }
+  .nav { min-height: 88px; align-items: flex-start; justify-content: center; gap: 4px; padding-block: 9px 7px; }
   .brand { font-size: .7rem; }
   .brand b { margin-right: 7px; font-size: 1.2rem; }
-  .navlinks { column-gap: 14px; row-gap: 0; font-size: .7rem; }
-  .navlinks a { min-height: 28px; }
-  .hero { min-height: 690px; min-height: 88svh; min-height: 88vh; background-position: 57% center; }
+  .navlinks { width: 100%; display: grid; grid-template-columns: max-content max-content max-content; justify-content: start; gap: 0 14px; overflow: visible; padding: 0; font-size: .7rem; }
+  .navlinks a { display: flex; align-items: center; min-height: 40px; padding-block: 6px; white-space: nowrap; }
+  .hero { align-items: flex-start; min-height: min(620px, 80svh); min-height: min(620px, 80vh); background-position: 57% center; }
   .hero:before { background: linear-gradient(90deg, #17282df0 0%, #17282dbe 67%, #17282d5c 100%), linear-gradient(0deg, #17282db3, transparent 47%); }
-  .hero-copy { padding: 185px 0 112px; }
-  .hero h1 { max-width: 10ch; margin: 18px 0 15px; font-size: clamp(3.15rem, 14vw, 4.5rem); }
+  .hero-copy { padding: 112px 0 50px; }
+  .hero h1 { max-width: none; margin: 15px 0 13px; font-size: clamp(2.65rem, 12vw, 3.1rem); }
   .hero p, .page-hero p:not(.breadcrumbs) { font-size: .94rem; line-height: 1.7; }
   .cta { min-height: 46px; margin-top: 19px; padding-inline: 14px; font-size: .8rem; }
-  .scrollhint { left: 18px; bottom: 17px; max-width: 200px; font-size: .59rem; }
+  .scrollhint { display: none; }
   .section-title { max-width: 17ch; font-size: clamp(2.05rem, 10vw, 2.8rem); }
   .intro { font-size: .93rem; }
   .opening-grid, .quizbox, .page-grid { grid-template-columns: minmax(0, 1fr); }
@@ -255,7 +256,7 @@ section { position: relative; padding: 90px 0; }
   .experience .name-maker { display: grid; grid-template-columns: minmax(0, 1fr); }
   .name-maker input, .name-maker button { width: 100%; min-height: 47px; }
   .quizpanel { padding: 19px; }
-  .page-hero { min-height: 410px; padding: 164px 0 41px; }
+  .page-hero { min-height: 370px; padding: 132px 0 38px; }
   .page-hero h1 { max-width: 12ch; font-size: clamp(2.65rem, 11vw, 3.7rem); }
   .breadcrumbs { margin-bottom: 13px; font-size: .68rem; }
   .page-content { padding: 47px 0; }
@@ -279,8 +280,8 @@ section { position: relative; padding: 90px 0; }
 }
 @media (max-width: 370px) {
   .wrap { width: calc(100% - 30px); }
-  .navlinks { column-gap: 10px; font-size: .66rem; }
-  .hero h1 { font-size: 3rem; }
+  .navlinks { column-gap: 10px; font-size: .64rem; }
+  .hero h1 { font-size: 2.6rem; }
   .section-title { font-size: 2rem; }
   .object-gallery { grid-template-columns: minmax(0, 1fr); }
   .object-card img { height: 205px; }
