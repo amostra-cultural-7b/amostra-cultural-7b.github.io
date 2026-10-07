@@ -452,6 +452,7 @@ header {
   border-color: #d7c6a6;
   background: #e8ddca;
   color: #493c2b;
+  font-weight: 500;
   box-shadow: none;
 }
 .navlinks a[aria-current="page"]:hover { background: #e2d3b9; }
