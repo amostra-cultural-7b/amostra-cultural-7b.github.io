@@ -56,8 +56,6 @@ header { position: absolute; z-index: 5; inset: 0 0 auto; width: 100%; border-bo
 .hero p, .page-hero p:not(.breadcrumbs) { max-width: 51ch; margin: 0; color: #f1eee6; font-size: clamp(1rem, 1.4vw, 1.12rem); line-height: 1.75; }
 .cta { display: inline-flex; align-items: center; justify-content: center; gap: 13px; min-height: 48px; margin-top: 24px; padding: 11px 18px; border: 1px solid #d9b984; background: #d5b37d; color: #1e292b; text-decoration: none; font-size: .86rem; font-weight: 700; transition: background .18s, color .18s, transform .18s; }
 .cta:hover { background: #efdab6; transform: translateY(-2px); }
-.scrollhint { position: absolute; bottom: 27px; left: max(32px, calc((100vw - var(--wrap))/2)); color: #f1e4cb; font-size: .67rem; letter-spacing: .13em; text-transform: uppercase; }
-.scrollhint span { display: block; width: 1px; height: 28px; margin: 8px auto 0; background: #e3bd7e; }
 .scene { display: none; }
 
 /* Section rhythm and typography */
@@ -250,7 +248,6 @@ section { position: relative; padding: 90px 0; }
   .hero h1 { max-width: none; margin: 15px 0 13px; font-size: clamp(2.65rem, 12vw, 3.1rem); }
   .hero p, .page-hero p:not(.breadcrumbs) { font-size: .94rem; line-height: 1.7; }
   .cta { min-height: 46px; margin-top: 19px; padding-inline: 14px; font-size: .8rem; }
-  .scrollhint { display: none; }
   .section-title { max-width: 17ch; font-size: clamp(2.05rem, 10vw, 2.8rem); }
   .intro { font-size: .93rem; }
   .opening-grid, .quizbox, .page-grid { grid-template-columns: minmax(0, 1fr); }
@@ -324,7 +321,7 @@ section { position: relative; padding: 90px 0; }
   body > main { display: block !important; }
   main > section { display: none !important; }
   main > #qr-estacoes { display: block !important; padding: 15px 0; background: #fff !important; color: #111 !important; }
-  header, footer, .hero, .page-hero, .filterbar, .quiz, .name-maker, .page-next, .top, .closing, .scrollhint { display: none !important; }
+  header, footer, .hero, .page-hero, .filterbar, .quiz, .name-maker, .page-next, .top, .closing { display: none !important; }
   #qr-estacoes .section-kicker, #qr-estacoes .intro, #qr-estacoes .qr-note { color: #333 !important; }
   #qr-estacoes .section-title { color: #111 !important; }
   #qr-estacoes .qr-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
