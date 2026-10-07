@@ -1,37 +1,51 @@
 # Museu digital — Uma viagem ao Egito Antigo
 
-Site estático em português para a amostra cultural. Tem cinco páginas temáticas, imagens originais e fotografias de acervo CC0, linha do tempo filtrável, QR Codes, quiz e atividade visual.
+Site responsivo em português para a amostra cultural. Criado com React, TypeScript e Vite, publicado gratuitamente no GitHub Pages. As seis páginas são pré-renderizadas em HTML e hidratadas no navegador. Inclui galeria de divindades com modal, filtros de linha do tempo, conversor visual de nome, QR Codes e quiz.
 
-A homepage abre com a atividade de transformar o nome em uma sequência lúdica de sinais e depois conduz às estações, datas, objetos, QR Codes e quiz. As páginas temáticas organizam o conteúdo em seções nomeadas e terminam com navegação para a estação seguinte.
+## Site e repositório
 
-## Publicação
-
+- Site: [amostra-cultural-7b.github.io/index.html](https://amostra-cultural-7b.github.io/index.html)
 - Repositório: [amostra-cultural-7b/amostra-cultural-7b.github.io](https://github.com/amostra-cultural-7b/amostra-cultural-7b.github.io)
-- Site: [https://amostra-cultural-7b.github.io/index.html](https://amostra-cultural-7b.github.io/index.html)
-- GitHub Pages serve a branch `main`, pasta `/ (root)`.
+- O GitHub Actions valida tipos, lint e testes, compila o site e publica o diretório `dist/` no Pages.
 
-Os QR Codes da página inicial levam a páginas ou seções específicas. As imagens PNG já estão no repositório, então a página e a impressão não dependem de um serviço externo para renderizá-las.
+## Desenvolvimento
 
-O QR de tour leva ao modelo 3D da Pirâmide de Quéops no [Giza Project da Universidade Harvard](https://giza.fas.harvard.edu/giza3d/?itemID=bwZfJsv1_).
+Requer Node.js 24 ou compatível com a versão registrada no lockfile.
 
-## Páginas e arquivos
+```sh
+npm ci
+npm run dev
+```
 
-- `index.html` — museu, galeria, QR Codes e quiz.
-- `nilo.html` — rio, vida cotidiana e mapa esquemático.
-- `monumentos.html` — Gizé, Esfinge e monumentos.
-- `escrita.html` — hieróglifos, Pedra de Roseta e crenças.
-- `linha-do-tempo.html` — períodos antigos, medievais e modernos.
-- `egito-hoje.html` — Egito moderno e contemporâneo.
-- `styles.css`, `app.js` — estilos e interações compartilhados.
-- `assets/` — ilustrações originais do Egito antigo e do Cairo contemporâneo, além de fotografias de objetos do The Met.
-- `assets/qr-*.png` — QR Codes prontos para impressão, codificados com os destinos do novo domínio GitHub Pages.
-- `P - Viagem ao Egito Antigo.md` — registro do projeto no vault.
+Antes de enviar mudanças, execute:
 
-## Fontes históricas e créditos de imagem
+```sh
+npm run typecheck
+npm run lint
+npm test
+npm run build
+```
 
-- [The Metropolitan Museum of Art — Ancient Egypt](https://www.metmuseum.org/essays/egypt-in-the-old-kingdom-ca-2649-2150-b-c)
-- [UNESCO — Memphis and its Necropolis](https://whc.unesco.org/en/list/86/)
-- [The Met Open Access](https://www.metmuseum.org/es/hubs/open-access). Fotografias de acervo identificadas por objeto nas páginas, marcadas como domínio público/CC0 pelo museu.
-- [Autoridade do Canal de Suez — história do canal](https://www.suezcanal.gov.eg/English/About/SuezCanal/Pages/CanalHistory.aspx)
+Use `npm run preview` para conferir localmente a compilação final.
 
-`assets/egypt-hero.jpg` e `assets/cairo-contemporary.jpg` são ilustrações originais criadas para este site; não representam fotografias históricas ou documentais.
+## Estrutura
+
+- `index.html`, `nilo.html`, `monumentos.html`, `escrita.html`, `linha-do-tempo.html`, `egito-hoje.html` — entradas multipágina; os endereços preservam links externos e QR Codes.
+- `src/main.tsx` — ponto de entrada React e seleção da página.
+- `src/render.tsx` — mapa de páginas e classes de corpo compartilhadas entre renderização e hidratação.
+- `src/pages.tsx` — conteúdo e composição das seis páginas.
+- `src/components.tsx` — navegação, tema, cartões, galeria de divindades, cronologia, atividade e quiz.
+- `src/data.ts` — dados tipados de navegação, divindades, cronologia, quiz e QR Codes.
+- `src/Sources.tsx` — referências organizadas por página.
+- `scripts/prerender.mjs` — pré-renderiza as rotas para manter conteúdo HTML disponível antes do JavaScript.
+- `styles.css` — identidade visual, temas claro/escuro, responsividade e impressão.
+- `public/assets/` — ilustrações, fotos, favicon e QR Codes prontos para impressão.
+- `AGENTS.md` — padrões de arquitetura, conteúdo, acessibilidade, testes e colaboração assistida por IA.
+
+## Rotas preservadas
+
+- `/` e `/index.html` — página inicial.
+- `/nilo.html`, `/monumentos.html`, `/escrita.html`, `/linha-do-tempo.html`, `/egito-hoje.html` — estações temáticas.
+- Âncoras usadas pelos QR Codes: `#quiz`, `#piramides`, `#mapa` e `#rosetta`.
+
+As imagens de acervo do The Metropolitan Museum of Art têm créditos individuais e licença Open Access/CC0. As ilustrações `egypt-hero.jpg` e `cairo-contemporary.jpg` foram criadas para o site e não representam fotografias documentais.

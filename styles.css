@@ -44,7 +44,7 @@ header { position: absolute; z-index: 5; inset: 0 0 auto; width: 100%; border-bo
 .navlinks a:focus-visible { outline: 3px solid #f1d2a0; outline-offset: 2px; }
 
 /* Home and inner-page image mastheads */
-.hero { min-height: min(780px, 94svh); min-height: min(780px, 94vh); display: flex; align-items: center; position: relative; isolation: isolate; background: #26383d url('assets/egypt-hero.jpg') center 52%/cover no-repeat; color: #fffdf7; }
+.hero { min-height: min(780px, 94svh); min-height: min(780px, 94vh); display: flex; align-items: center; position: relative; isolation: isolate; background: #26383d url('/assets/egypt-hero.jpg') center 52%/cover no-repeat; color: #fffdf7; }
 .hero:before, .page-hero:before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, #17282de8 0%, #17282da8 45%, #17282d28 100%), linear-gradient(0deg, #17282d8a, transparent 43%); }
 .hero:after { content: ""; position: absolute; z-index: -1; inset: 0; background: linear-gradient(180deg, #0e1e241c, transparent 30%); pointer-events: none; }
 .hero-copy { position: relative; width: min(680px, 100%); padding: 158px 0 140px; }
@@ -174,11 +174,11 @@ section { position: relative; padding: 90px 0; }
 .page-hero .wrap { position: relative; z-index: 1; }
 .page-hero h1 { max-width: 14ch; margin: 13px 0 12px; font-size: clamp(2.8rem, 6vw, 5rem); }
 .page-hero p:not(.breadcrumbs) { max-width: 62ch; }
-.page-nile .page-hero { background-image: url('assets/nile-boat.jpg'); }
-.page-monuments .page-hero { background-image: url('assets/egypt-hero.jpg'); }
-.page-writing .page-hero { background-image: url('assets/hieroglyphs.jpg'); }
-.page-timeline .page-hero { background-image: url('assets/egypt-hero.jpg'); background-position: center 58%; }
-.page-modern .page-hero { background-image: url('assets/cairo-contemporary.jpg'); }
+.page-nile .page-hero { background-image: url('/assets/nile-boat.jpg'); }
+.page-monuments .page-hero { background-image: url('/assets/egypt-hero.jpg'); }
+.page-writing .page-hero { background-image: url('/assets/hieroglyphs.jpg'); }
+.page-timeline .page-hero { background-image: url('/assets/egypt-hero.jpg'); background-position: center 58%; }
+.page-modern .page-hero { background-image: url('/assets/cairo-contemporary.jpg'); }
 .breadcrumbs { margin: 0 0 18px; color: #f3eee4; font-size: .74rem; }
 .breadcrumbs a { color: #f0d29e; text-decoration: none; }
 .breadcrumbs a:hover { text-decoration: underline; }
@@ -915,7 +915,7 @@ body.home .home-hero,
   align-items: center;
   overflow: hidden;
   isolation: isolate;
-  background: #172327 url('assets/egypt-hero.jpg') center 52% / cover no-repeat;
+  background: #172327 url('/assets/egypt-hero.jpg') center 52% / cover no-repeat;
   color: #fffefa;
 }
 .home-hero:before {
@@ -962,7 +962,7 @@ body.home .home-hero,
   color: #e0e2dc;
 }
 .home-hero-meta a { color: #f0d29e; }
-:root[data-theme="dark"] body.home .home-hero { background-image: url('assets/egypt-hero.jpg'); }
+:root[data-theme="dark"] body.home .home-hero { background-image: url('/assets/egypt-hero.jpg'); }
 @media (max-width: 860px) {
   body.home .home-hero, :root[data-theme="dark"] body.home .home-hero { min-height: 0; }
   .home-hero-grid { grid-template-columns: minmax(0, 1fr); gap: 18px; padding-block: 55px 22px; }

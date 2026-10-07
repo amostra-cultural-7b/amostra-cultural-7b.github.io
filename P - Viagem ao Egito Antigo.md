@@ -34,6 +34,7 @@ Criar e publicar um site educativo em português para acompanhar uma amostra cul
 - O conversor deixa claro que substitui letras por símbolos como brincadeira visual, não como tradução ou escrita egípcia.
 - A homepage abre com a atividade lúdica de transformar o nome em sinais; depois conduz visitantes pelas estações, cronologia, objetos, QR Codes e quiz. Páginas temáticas usam seções HTML nomeadas e navegação consistente para a próxima estação.
 - CSS compartilhado reforça hierarquia visual, espaçamento responsivo, estados de foco e movimento reduzido sem alterar a folha de impressão dos QR Codes.
+- Migração para React + TypeScript + Vite com seis entradas HTML preservadas, pré-renderização antes da hidratação, workflow de GitHub Pages, testes de interações e regras de arquitetura/acessibilidade em `AGENTS.md`.
 
 ## Fontes
 
