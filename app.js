@@ -14,16 +14,34 @@ if (qrGrid) {
   }).join('');
 }
 
-document.querySelectorAll('.filterbar button').forEach(button => {
+const timelineFilters = document.querySelectorAll('.filterbar button');
+const timelineEvents = [...document.querySelectorAll('.timeline-era .event')];
+const timelineEras = [...document.querySelectorAll('.timeline-era')];
+const timelineCount = document.querySelector('#timeline-count');
+
+function filterTimeline(filter) {
+  let visibleCount = 0;
+  timelineEvents.forEach(event => {
+    const visible = filter === 'todos' || event.dataset.period === filter;
+    event.hidden = !visible;
+    if (visible) visibleCount += 1;
+  });
+  timelineEras.forEach(era => {
+    era.hidden = !era.querySelector('.event:not([hidden])');
+  });
+  if (timelineCount) {
+    timelineCount.textContent = `${visibleCount} ${visibleCount === 1 ? 'marco histórico' : 'marcos históricos'}`;
+  }
+}
+
+timelineFilters.forEach(button => {
   button.addEventListener('click', () => {
-    document.querySelectorAll('.filterbar button').forEach(filterButton => {
+    timelineFilters.forEach(filterButton => {
       const selected = filterButton === button;
       filterButton.classList.toggle('active', selected);
       filterButton.setAttribute('aria-pressed', String(selected));
     });
-    document.querySelectorAll('.event').forEach(event => {
-      event.hidden = button.dataset.filter !== 'todos' && event.dataset.period !== button.dataset.filter;
-    });
+    filterTimeline(button.dataset.filter);
   });
 });
 
